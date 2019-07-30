@@ -5,6 +5,11 @@ import { appStore } from '../../stores/app-store'
 
 import './Index-page.scss'
 
+enum Translation {
+  Page = 'Index Page',
+  Ip = 'your ip'
+}
+
 @(withRouter as any)
 @observer
 class IndexPage extends React.Component {
@@ -13,7 +18,11 @@ class IndexPage extends React.Component {
   }
 
   render() {
-    return <div className={'index-page'}>Index Page, your ip = {appStore.ip ? appStore.ip : '... waiting!'}</div>
+    return (
+      <div className={'index-page'}>
+        {Translation.Page}, {Translation.Ip} = {appStore.ip ? appStore.ip : '... waiting!'}
+      </div>
+    )
   }
 }
 
